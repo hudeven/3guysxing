@@ -1,0 +1,54 @@
+<html ng-app="myApp">
+    <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <title>User table</title>
+    </head>
+    <body>
+    <div class="container" ng-controller="AppController">
+        <h1>Content..</h1>
+
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>action</th>
+                <th>&nbsp;</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control" ng-model="user.name"></input>
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="user.email"></input>
+                    </td>
+                    <td>
+                        <input class="form-control" ng-model="user.password"></input>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" ng-click="addUser()">Add User</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button>
+                    </td>
+                </tr>
+                <tr ng-repeat="user in userList">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.password}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(user._id)">Remove</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(user._id)">Edit</button></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="controllers/controller.js"></script>
+    </body>
+</html>
